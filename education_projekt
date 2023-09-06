@@ -30,12 +30,10 @@ namespace BingScraper
         static List<string> proxies = LoadProxies();
         static ConcurrentDictionary<string, int> dorkStats = new ConcurrentDictionary<string, int>();
 
-        static string mode;
 
 
         static int progressBarLength = 50; // Délka progress baru
         static int boxWidth = 50; // Délka rámečku
-        private static string url;
         private static readonly object fileLock = new object();
         private static readonly object lockObject = new object(); // Nový zámek pro synchronizaci
 
@@ -165,6 +163,8 @@ namespace BingScraper
 
                 try
                 {
+                    string nextProxy = GetNextProxy(ref currentProxyIndex);
+                    httpClient.DefaultRequestHeaders.Add("Proxy", nextProxy);
                     HttpResponseMessage response = await httpClient.GetAsync($"https://www.bing.com/search?q={query}&first=125&FORM=");
                     if (response.IsSuccessStatusCode)
                     {
