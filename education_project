@@ -1,0 +1,576 @@
+using System;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Linq;
+using System.Security.Policy;
+using System.Net;
+using System.Collections.Concurrent;
+
+namespace BingScraper
+{
+    class Program
+    {
+        static int urlCount = 0;
+        static int errorCount = 0;
+        static int duplicateUrlCount = 0;
+        static int filteredUrlCount = 0;
+        static int banProxiesCount = 0;
+        static int totalUrlsTested = 0;
+        static int currentProxyIndex = 0;
+        static int successfulTests = 0;
+
+
+
+
+        static int sleepInterval = 6500;
+        static List<string> proxies = LoadProxies();
+        static ConcurrentDictionary<string, int> dorkStats = new ConcurrentDictionary<string, int>();
+
+        static string mode;
+
+
+        static int progressBarLength = 50; // Délka progress baru
+        static int boxWidth = 50; // Délka rámečku
+        private static string url;
+        private static readonly object fileLock = new object();
+        private static readonly object lockObject = new object(); // Nový zámek pro synchronizaci
+
+
+
+
+        static void Main(string[] args)
+        {
+            //  Tím se zajistí, že se proměnné resetují pouze při novém spuštění programu.
+            // Resetování globálních proměnných
+            //ResetGlobalVariables();
+
+
+
+            while (true)
+            {
+                // Resetování globálních proměnných
+                ResetGlobalVariables();
+
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("┌────────────────────────────────────────┐");
+                Console.WriteLine("│   Area51 MultiParser  ~ AIO v.{alpha}  │");
+                Console.WriteLine("├────────────────────────────────────────┤");
+                Console.WriteLine("│ 1. Spustit scraping                    │");
+                Console.WriteLine("│ 2. Zobrazit statistiky                 │");
+                Console.WriteLine("│ 3. Nastavit časový interval            │");
+                Console.WriteLine("│ 4. Testovat zranitelnosti              │");  // Nová možnost
+                Console.WriteLine("│ 5. Ukončit                             │");
+                Console.WriteLine("└────────────────────────────────────────┘");
+                Console.ResetColor();
+                Console.Write("Zadejte svou volbu: ");
+                string choice = Console.ReadLine();
+                Console.Clear();
+                switch (choice)
+                {
+                    case "1":
+
+                        SelectModeAsync();
+                        break;
+                    case "2":
+                        ShowStats();
+                        break;
+                    case "3":
+                        SetInterval();
+                        break;
+                    case "4":
+                        //TestVulnerabilities();  // Nová funkce
+                        break;
+                    case "5":
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        ShowProgress("Neplatná volba.", ConsoleColor.Red);
+                        break;
+                }
+            }
+
+
+        }
+        static async void ResetGlobalVariables()
+        {
+            //Console.WriteLine("Resetting global variables...");  // Přidáno pro ladění
+            //urlCount = 0;
+            //errorCount = 0;
+            //duplicateUrlCount = 0;
+            //filteredUrlCount = 0;
+
+            Console.Title = $"Area51 AIO Parser ║> Uložené URL: {filteredUrlCount} ║ Chyby: {errorCount} ║ BanProx: {banProxiesCount}  <║";
+        }
+        // Přidáme novou metodu pro výběr režimu
+        static async Task SelectModeAsync()
+        {
+            //Console.Clear();
+
+
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("              ╔════════════════════════════════════════════╗");
+            Console.WriteLine("              ║     Area51 MultiParser  ~ AIO v.{alpha}    ║");
+            Console.WriteLine("              ╚════════════════════════════════════════════╝\n\n");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("                ┌────────────────────────────────────────┐");
+            Console.WriteLine("                │              Vyberte režim             │");
+            Console.WriteLine("                ├────────────────────────────────────────┤");
+            Console.WriteLine("                │ 1. LOG                                 │");
+            Console.WriteLine("                │ 2. CUI                                 │");
+            Console.WriteLine("                └────────────────────────────────────────┘");
+            Console.ResetColor();
+            Console.Write("Zadejte svou volbu: ");
+            string modeChoice = Console.ReadLine();
+            Console.Clear();
+
+            if (modeChoice == "1")
+            {
+                // Spustíme metodu ScrapeBing v režimu Log
+                await StartScraping("LOG");  // Poznámka: Tato metoda je asynchronní, takže budete muset upravit SelectMode na asynchronní metodu
+            }
+            else if (modeChoice == "2")
+            {
+                // Spustíme metodu ScrapeBing v režimu CUI
+                await StartScraping("CUI");  // Poznámka: Tato metoda je asynchronní, takže budete muset upravit SelectMode na asynchronní metodu
+            }
+            else
+            {
+                Console.WriteLine("Neplatná volba.");
+            }
+        }
+
+
+
+
+
+
+        static async Task ScrapeBingAsync(string dork)
+        {
+
+
+            List<string> foundUrls = new List<string>(); // List pro všechny nalezené URL
+            HashSet<string> uniqueUrls = new HashSet<string>(); // HashSet pro unikátní URL
+            List<string> filteredUrls = new List<string>(); // List pro filtrované URL
+
+
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                string query = $"{dork}";
+
+                try
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync($"https://www.bing.com/search?q={query}&first=125&FORM=");
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string htmlContent = await response.Content.ReadAsStringAsync();
+                        foreach (Match match in Regex.Matches(htmlContent, @"http(s)?://([\w-]+.)+[\w-]+(/[\w- ./?%&=]*)?"))
+                        {
+
+                                string url = match.Value;
+                                foundUrls.Add(url); // Přidání URL do listu nalezených URL
+
+                            lock (lockObject) // Použití zámku 
+                            {
+                                urlCount++;
+
+                            }
+
+                            if (IsValidUrl(url))
+                            {
+
+                                if (uniqueUrls.Add(url)) // Přidání URL do HashSetu unikátních URL
+                                {
+                                    lock (lockObject) // Použití zámku 
+                                    {
+
+                                        filteredUrls.Add(url); // Přidání URL do listu filtrovaných URL
+                                        filteredUrlCount++;
+
+                                        //OnUrlFound(url, dork);
+
+                                        // Zobrazení statistik
+                                        //ShowStats();
+                                    }
+                                }
+                                else
+                                {
+                                    lock (lockObject) // Použití zámku 
+                                    {
+                                        duplicateUrlCount++; // URL je duplikát
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                        lock (fileLock)
+                        {
+                            // Ověření existence souboru
+                            if (!File.Exists("filteredUrls.txt"))
+                            {
+                                File.Create("filteredUrls.txt").Close();
+                            }
+
+                            // Použití StreamWriter pro zápis do souboru
+                            lock (fileLock)
+                            {
+                                using (StreamWriter sw = new StreamWriter("filteredUrls.txt", true))
+                                {
+                                    foreach (string uniqueUrl in uniqueUrls)
+                                    {
+                                        sw.WriteLine(uniqueUrl);
+                                    }
+                                    sw.Flush();  // Okamžitý zápis dat na disk
+                                }
+                            }
+                        }
+
+                    }
+
+                    else
+                    {
+                        errorCount++;
+                        LogError(new Exception($"Failed to get data for dork: {dork}. Status code: {response.StatusCode}"));
+                    }
+
+                }
+
+                catch (HttpRequestException ex)
+                {
+                    lock (lockObject) // Použití zámku pro konzolový výstup
+                    {
+
+                        errorCount++;
+                        banProxiesCount++;
+
+                    }
+                    LogError(ex);
+                    string nextProxy = GetNextProxy(ref currentProxyIndex);
+                    httpClient.DefaultRequestHeaders.Add("Proxy", nextProxy);
+
+                }
+            }
+        }
+
+
+        static async Task StartScraping(string mode)
+        {
+            // Console.WriteLine("Zadejte počet botů, které chcete použít:");
+            // int numberOfBots = int.Parse(Console.ReadLine());
+            string[] dorks = File.ReadAllLines("dorks.txt");
+            int totalDorks = dorks.Length;
+            int processedDorks = 0;
+            //var tasks = dorks.Select(dork => ScrapeBingAsync(dork)).ToArray();
+            //await Task.WhenAll(tasks);
+
+
+            Parallel.ForEach(dorks, new ParallelOptions { MaxDegreeOfParallelism = 1 }, async dork =>
+            {
+
+                if (mode == "LOG")
+                {
+                    ShowProgress($"Provádím vyhledávání pro {dork}", ConsoleColor.Blue);
+                }
+
+                else if (mode == "CUI")
+                {
+                    // lock (lockObject) // Použití zámku pro konzolový výstup
+                    // {
+                    UpdateCUI(dork, processedDorks, totalDorks,  urlCount, duplicateUrlCount, filteredUrlCount);
+                    //}
+                }
+
+
+                try
+                {
+                    await ScrapeBingAsync(dork);
+                }
+
+                catch (Exception ex)
+                {
+
+                    LogError(ex);
+                    errorCount++;
+                    if (mode == "LOG")
+                    {
+                        ShowProgress($"Chyba: {ex.Message}", ConsoleColor.Red);
+                    }
+
+                }
+
+                processedDorks++;
+
+                UpdateConsoleTitle(processedDorks, totalDorks, banProxiesCount, filteredUrlCount, duplicateUrlCount);
+
+                //await ScrapeBingAsync(dork);
+                await Task.Delay(sleepInterval);
+
+            });
+
+            ShowProgress("Aplikace ukončena", ConsoleColor.Green);
+        }
+
+
+        static void UpdateCUI(string currentDork, int processedDorks, int totalDorks,  int urlCount, int duplicateUrlCount, int filteredUrlCount)
+        {
+
+            double percentageFound = (urlCount == 0) ? 0 : ((double)filteredUrlCount / urlCount) * 100;
+
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            int boxWidth = 70;
+
+            // Horizontální graf pro zobrazení procenta nalezených URL
+            int barLength = 20;
+            int filledLength = (int)(percentageFound / 100 * barLength);
+            string bar = new string('#', filledLength).PadRight(barLength, '-');
+
+
+
+
+            //Console.Clear();
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+
+
+            Console.WriteLine("              ╔════════════════════════════════════════════╗");
+            Console.WriteLine("              ║     Area51 MultiParser  ~ AIO v.{alpha}    ║");
+            Console.WriteLine("              ╚════════════════════════════════════════════╝\n\n");
+
+
+
+
+            // Hlavička
+            Console.WriteLine("╔" + new string('═', boxWidth - 2) + "╗");
+
+            // Aktuální Dork
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("║" + $" Current Dork: {currentDork}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Procento nalezených URL na aktuální dork
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("║" + $" Hodnoceni aktualniho dorku: [{bar}] {percentageFound:F2}%".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Zpracované Dorks
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("║" + $" Processed: {processedDorks}/{totalDorks}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Nalezené URL
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("║" + $" Found URLs: {urlCount}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Duplicitní URL
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("║" + $" Duplicate URLs: {duplicateUrlCount}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Filtrované URL
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("║" + $" Filtered URLs: {filteredUrlCount}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+
+            // Ban proxies
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(value: "║" + $" Ban Proxies: {banProxiesCount}".PadRight(boxWidth - 2) + "║");
+            Console.ResetColor();
+
+            // Progress Bar
+            Console.WriteLine("║" + new string('═', boxWidth - 2) + "║");
+            DrawProgressBar(processedDorks, totalDorks);
+
+
+            // Animace "Working"
+            Console.WriteLine("╠" + new string('═', boxWidth - 2) + "╣");
+
+            // Zobrazení aktuálního data a času
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("║" + $" Date: {currentDate}".PadRight(boxWidth - 2) + "║");
+
+            Console.ResetColor();
+
+
+            // Patička
+            Console.WriteLine("╚" + new string('═', boxWidth - 2) + "╝");
+
+            Console.Write(" Working: ");
+            AnimateWorkingIndicator();
+            Console.WriteLine(" ".PadRight(boxWidth - 2) + "");
+            Console.Clear();
+
+        }
+
+
+        static async void DrawProgressBar(int currentValue, int maxValue)
+        {
+            double ratio = (double)currentValue / maxValue;
+            int filledLength = (int)(ratio * (boxWidth - 15));
+
+            Console.Write("| Progress: [");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+
+            for (int i = 0; i < filledLength; i++)
+            {
+                Console.Write("█");  // Užíváme znak '█' pro plnější vzhled
+            }
+
+            Console.ResetColor();
+
+            for (int i = filledLength; i < boxWidth - 15; i++)
+            {
+                Console.Write(" ");
+            }
+
+            Console.Write("                 ]   ║");
+            Console.WriteLine();
+        }
+
+        static async void AnimateWorkingIndicator()
+        {
+            string spinner = "|/-\\";
+            for (int i = 0; i < 10; i++)  // Animace trvá 10 cyklů
+            {
+                Console.Write(spinner[i % 4]);
+                Thread.Sleep(100);  // Pauza 100 ms mezi každým snímkem
+                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+            }
+        }
+
+
+
+
+        //1. Načtení proxy ze souboru proxies.txt
+        static List<string> LoadProxies()
+        {
+            return new List<string>(File.ReadAllLines("proxies.txt"));
+        }
+
+
+        //2. Rotace proxy
+
+        static string GetNextProxy(ref int currentProxyIndex)
+        {
+            string proxy = proxies[currentProxyIndex];
+            currentProxyIndex = (currentProxyIndex + 1) % proxies.Count;
+            return proxy;
+        }
+
+
+        static bool IsValidUrl(string url)
+        {
+            return (!url.Contains("bing.com") &&
+                   !url.Contains("www.youtube.com") &&
+                   !url.Contains("social.msdn.microsoft.com") &&
+                   !url.Contains("google.com") &&
+                    !url.Contains("s.bingparachute.com") &&
+                    !url.Contains("login.live.com") &&
+                    !url.Contains("www.msn.com") &&
+                    !url.Contains("r.bing.com") &&
+                    !url.Contains("www.w3.org") &&
+                    !url.Contains("go.microsoft.com") &&
+                    !url.Contains("cc.bingj.com") &&
+                    !url.Contains("facebook.com") &&
+                    !url.Contains("github.com")) &&
+                   (url.Contains(".php") ||
+                    url.Contains(".aspx") ||
+                    url.Contains(".jsp") ||
+                    url.Contains("="));
+        }
+
+
+        static void LogError(Exception ex)
+        {
+            File.AppendAllText("errorLog.txt", $"{DateTime.Now}: {ex.Message}\n");
+        }
+
+        static void ShowProgress(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine($"[{DateTime.Now}] {message}");
+            Console.ResetColor();
+        }
+
+        static void UpdateConsoleTitle(int processed, int total, int errorCount, int filteredUrlCount, int banProxiesCount)
+        {
+
+            double percentage = ((double)processed / total) * 100;
+            Console.Title = $"Area51 AIO Parser ║> Uložené URL: {filteredUrlCount} ║ Chyby: {errorCount} ║ BanProx: {banProxiesCount} ║ Postup: {percentage:0.00}% <║";
+
+        }
+
+        static void OnUrlFound(string url, string dork)
+        {
+            // Aktualizace statistik
+            dorkStats.AddOrUpdate(dork, 1, (key, oldValue) => oldValue + 1);
+        }
+
+        static int GetTotalAttemptsForDork(string dork)
+        {
+            // Implementace závisí na vaší aplikaci
+            return 1;  // Vrátíme 1 jako placeholder
+        }
+        static void ShowStats()
+        {
+
+
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("┌────────────────────────────────────────┐");
+            Console.WriteLine("│           Area51 AIO Parser Stats      │");
+            Console.WriteLine("├────────────────────────────────────────┤");
+            Console.WriteLine($"│ Celkový počet uloženych URL: {filteredUrlCount}        │");
+            Console.WriteLine($"│ Celkový počet chyb: {errorCount}                  │");
+            Console.WriteLine("│ Statistiky dorků:");
+            foreach (var entry in dorkStats)
+            {
+                Console.WriteLine($"│   Dork: {entry.Key}, Počet URL: {entry.Value}");
+            }
+
+            Console.WriteLine("│ Procentuální úspěšnost dorků:");
+            foreach (var entry in dorkStats)
+            {
+
+                // Předpokládáme, že totalAttempts je celkový počet pokusů pro tento dork
+                int totalAttempts = GetTotalAttemptsForDork(entry.Key);
+                double successRate = ((double)entry.Value / totalAttempts) * 10;
+                Console.WriteLine($"│   Dork: {entry.Key}, Úspěšnost: {successRate:F2}%");
+            }
+            Console.WriteLine("└────────────────────────────────────────┘");
+            DrawBar(errorCount, ConsoleColor.Red);
+
+            Console.ResetColor();
+            Console.WriteLine("Stiskněte libovolnou klávesu pro návrat do menu...");
+            Console.ReadKey();
+        }
+        static void DrawBar(int count, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(new string('█', count / 10));  // Předpokládáme, že každý blok reprezentuje 10 položek
+            Console.ResetColor();
+        }
+        static void SetInterval()
+        {
+            Console.Write("Zadejte nový časový interval v milisekundách: ");
+            if (int.TryParse(Console.ReadLine(), out int newInterval))
+            {
+                sleepInterval = newInterval;
+                ShowProgress($"Časový interval nastaven na {newInterval} ms", ConsoleColor.Green);
+            }
+            else
+            {
+                ShowProgress("Neplatná hodnota. Interval nebyl změněn.", ConsoleColor.Red);
+            }
+        }
+    }
+}
